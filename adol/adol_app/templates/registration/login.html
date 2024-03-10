@@ -1,0 +1,96 @@
+{% extends 'adol_app/base.html' %}
+{% load static %} <!-- Add this line to load the static tag -->
+
+{% block content %}
+  <div class="login-container">
+    <div class="image-container">
+      <img src="{% static 'adol_app/1234.jpg' %}" alt="Login-Image">
+    </div>
+    <div class="form-container">
+      <h2>Login</h2>
+      <form method="post" action="{% url 'login_user' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+  <style>
+    /* Import Google Fonts for a luxurious font */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+  
+    /* Apply font to the body */
+    body {
+      font-family: 'Playfair Display', serif;
+      margin: 0; /* Remove default margin */
+    }
+  
+    .login-container {
+      display: flex;
+    }
+  
+    .image-container {
+      width: 75%;
+      height: 100vh;
+    }
+  
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  
+    .form-container {
+      width: 25%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffeb3b; /* Change background color to yellow */
+    }
+  
+    h2 {
+      color: #3498db;
+      font-size: 24px; /* Increase font size for heading */
+      margin-bottom: 20px;
+    }
+  
+    form {
+      width: 80%; /* Adjust the form width */
+    }
+  
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-size: 16px; /* Increase font size for labels */
+    }
+  
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ddd; /* Add a subtle border for text inputs */
+      border-radius: 4px; /* Add border-radius for rounded corners */
+    }
+  
+    button {
+      background-color: #3498db;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 4px; /* Add border-radius for rounded corners */
+      transition: background-color 0.3s ease; /* Add a smooth transition for the button */
+    }
+  
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+  
+{% endblock %}

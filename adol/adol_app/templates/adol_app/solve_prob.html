@@ -1,0 +1,48 @@
+{% extends 'adol_app/base.html' %}
+{% block content %}
+    <style>
+        .main-content {
+            background-color: yellow; /* Set overall background to yellow */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        .box {
+            width: 45%;
+            padding: 20px;
+            background-color: #3498db; /* Set box background to blue */
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="box">
+                <h1>Have a query?</h1>
+                <p>Use adolLine to create your own query or look at other queries.</p>
+                <a href="{% url 'post_new' %}">Create</a>
+            </div>
+
+            <div class="box">
+                <h1>Check out other questions</h1>
+                <p>Check out queries posted by other users.</p>
+                <a href="{% url 'post_list' %}">Check out</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

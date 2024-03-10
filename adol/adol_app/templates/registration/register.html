@@ -1,0 +1,72 @@
+{% extends 'adol_app/base.html' %}
+{% block content %}
+  <style>
+    /* Import Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif; /* Apply Roboto font to the entire page */
+    }
+
+    h2 {
+      color: #007bff; /* Blue color for heading */
+    }
+
+    form {
+      width: 80%;
+      margin: auto; /* Center the form */
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-size: 16px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #007bff; /* Blue color for button */
+      color: #fff;
+      padding: 12px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    /* Background colors */
+    body {
+      background-color: #ffeb3b; /* Yellow background color for the entire page */
+    }
+
+    form {
+      background-color: #fff; /* White background color for the form */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for the form */
+    }
+  </style>
+
+  <h2>Register</h2>
+  <form method="post" action="{% url 'register_user' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+  </form>
+{% endblock %}

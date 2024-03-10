@@ -1,0 +1,62 @@
+{% extends 'adol_app/base.html' %}
+{% block content %}
+    <style>
+        form {
+            margin-right: 100px;
+            background-color: #ffeb3b;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px; /* Adjust the width as needed */
+            margin: 0 auto; /* Center the form horizontally */
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+    <h1>Doubts Not Answered</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="{{ form.title.id_for_label }}">Title:</label>
+            {{ form.title }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.content.id_for_label }}">Content:</label>
+            {{ form.content }}
+        </div>
+
+        <button type="submit">Create query</button>
+    </form>
+{% endblock %}

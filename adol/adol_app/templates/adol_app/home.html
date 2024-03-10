@@ -1,0 +1,18 @@
+{% extends 'adol_app/base.html' %}
+{%load static%}
+{% block content %}
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensure the image covers the entire container */
+    }
+  </style>
+
+  <img src="{% static 'adol_app/homeimg.jpeg' %}" alt="home_image">
+{% endblock %}
